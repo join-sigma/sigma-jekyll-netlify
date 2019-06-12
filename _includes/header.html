@@ -1,11 +1,34 @@
-<header>
+<!-- MAIN LOGO -->
 
-  <h1>
-    <a href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
-  </h1>
+{% if page.guild-photo | escape %}
+<style>
+    .main-gallery {
+        background-image: url( {{ page.guild-photo }});
+    }
+</style>
+{% endif %}
 
-  <nav>
-    {% include navigation.html navigation=site.data.navigation %}
-  </nav>
+<section id="home" class="main-gallery" style="background-size: cover !important; overflow: hidden; background-position: 50% center !important;">
 
-</header>
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                &nbsp;
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if page.header-title %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12" style="text-align: center;">
+            <h1 style="font-size: 225%; padding-top: 8rem; padding-bottom: 0;">{{ page.header-title | escape }}</h1>
+            {% if page.gg-link-text %}
+                <a href="{{ page.gg-link | escape }}" target="_blank" style="font-size: 1.25rem; text-decoration: underline !important;">{{ page.gg-link-text | escape }}</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endif %}
